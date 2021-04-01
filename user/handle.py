@@ -41,7 +41,7 @@ def getAllRecordsFromDatabase(databaseName):
 
 
 if __name__ == '__main__':
-    dataset = getAllRecordsFromDatabase("card_100000_1_i")
+    dataset = getAllRecordsFromDatabase("card_100000_1_i_a")
     dataset_features = dataset[:, 1:-1]
     dataset_labels = dataset[:, -1:]
     sampler=RandomUnderSampler(sampling_strategy=0.5)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     print(rfc.feature_importances_)
 
     print("PCA")
-    svd = PCA(n_components=2)
+    svd = PCA(n_components=58)
     startOfPCA = time.time()
     svd.fit(train_features)
     pcaTransformed_train_features = svd.transform(train_features)
